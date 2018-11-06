@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +42,6 @@ INSTALLED_APPS = [
     'taggit',
     'cards.apps.CardsConfig',
     'company.apps.CompanyConfig',
-
 ]
 
 MIDDLEWARE = [
@@ -131,4 +131,8 @@ EMAIL_HOST_USER = 'testowymarcin0@gmail.com'
 EMAIL_HOST_PASSWORD = 'tralalala00'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 

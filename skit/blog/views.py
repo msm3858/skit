@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
@@ -19,6 +20,7 @@ from taggit.models import Tag
 
 
 # METHOD VIEW
+@login_required
 def post_list(request, tag_slug=None):
     object_list = Post.published.all()
     tag = None
