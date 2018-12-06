@@ -1,3 +1,23 @@
+from cards.models import *
+from company.models import *
+Meeting.objects.all()
+meeting = Meeting.objects.all()[0]
+roomReservation = RoomReservation.objects.all()[0]
+roomReservation.id
+roomReservation.meeting.company_meeting_reservation.all()
+
+room = Room.objects.get(id=1)
+
+
+for reservation in room.company_room_reservation.all():
+    print(reservation.meeting)
+
+for reservation in room.company_room_reservation.all():
+    print(reservation.meeting.description)
+
+
+
+
 import sys
 from django.contrib.auth.models import User
 from blog.models import Post

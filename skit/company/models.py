@@ -6,14 +6,16 @@ from taggit.managers import TaggableManager
 import uuid
 
 
+
+
 # Create your models here.
 class Human(models.Model):
     uuid = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
     name = models.CharField(max_length=50, unique=False)
     last_name = models.CharField(max_length=100, unique=False)
     active = models.BooleanField(default=True)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    # created = models.DateTimeField(auto_now_add=True)
+    # updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return "{} {} active: {}".format(self.name, self.last_name, self.active)
@@ -65,6 +67,7 @@ class Room(models.Model):
     def __str__(self):
         return "Name: {}, capacity: {}.".format(self.name, self.capacity)
 
+
 class CardUsage(models.Model):
     description = models.TextField(null=False, unique=False)
     start_time = models.DateTimeField(null=False)
@@ -97,6 +100,23 @@ class Meeting(models.Model):
 
     class Meta:
         ordering = ['number_of_participants', 'description']
+
+
+class MeetingParticipant(models.Model):
+    id = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
+    meeting = models.ForeignKey(Meeting,
+                                on_delete=models.SET_NULL,
+                                related_name='company_meeting_participant_participant',
+                                null=True)
+    visitors = models.ManyToManyField(Visitor,
+                                      related_name='visitors_meeting_participants')
+    employees = models.ManyToManyField(Employee,
+                                       related_name='employees_meeting_participants')
+    # created = models.DateTimeField(auto_now_add=True, null=False)
+    # updated = models.DateTimeField(auto_now=True, null=True)
+
+    def __str__(self):
+        return "[Uuid: {}, meeting: {}]".format(self.id, self.meeting.description[:20])
 
 
 class RoomReservation(models.Model):

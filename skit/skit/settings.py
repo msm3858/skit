@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'taggit',
     'cards.apps.CardsConfig',
     'company.apps.CompanyConfig',
+    'base.apps.BaseConfig',
+    'document.apps.DocumentConfig',
 ]
 
 MIDDLEWARE = [
@@ -135,4 +137,7 @@ EMAIL_USE_TLS = True
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 

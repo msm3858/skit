@@ -5,7 +5,6 @@ from django.core.validators import RegexValidator
 from django.urls import reverse
 from django.utils import timezone
 
-
 class FreeManager(models.Manager):
     def get_queryset(self):
         return super(FreeManager, self).get_queryset()\
