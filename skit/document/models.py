@@ -42,11 +42,7 @@ class UploadToPathAndRename(object):
         return os.path.join(self.sub_path, filePath)
 
 
-
-
-
 class BaseDocument(models.Model):
-
     STATUS_CHOICES = (
         ('s', 'Sent'),
         ('p', 'Pending'),
@@ -66,22 +62,26 @@ class BaseDocument(models.Model):
                                         default='pdf')
 
     uuid = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
-    name = models.CharField(max_length=50, unique=False, blank=True,)
+    name = models.CharField(max_length=50, unique=False, blank=True, )
+    description = models.TextField(null=True)
     status = models.CharField(max_length=1,
                               choices=STATUS_CHOICES,
-                              default='l',)
+                              default='l', )
+    created = models.DateTimeField(auto_now_add=True, null=False)
+    updated = models.DateTimeField(auto_now=True, null=True)
 
+    file = models.FileField(upload_to=UploadToPathAndRename(os.path.join('documents/')))
     extension = models.CharField(
-                            max_length=10,
-                            null=False,
-                            db_index=True,
-                            validators=[RegexValidator(regex='^(\S{1,10})$',
-                                                       message='Inappropriate file extension. Must be numeric.',
-                                                       code='invalid_file_extension',
-                                                       )
-                                        ],
-                            blank=True,
-                            )
+        max_length=10,
+        null=False,
+        db_index=True,
+        validators=[RegexValidator(regex='^(\S{1,10})$',
+                                   message='Inappropriate file extension. Must be numeric.',
+                                   code='invalid_file_extension'
+                                   )
+                    ],
+        blank=True,
+    )
 
     class Meta:
         abstract = True
@@ -92,7 +92,7 @@ class MeetingDocument(BaseDocument):
     # meeting = models.ForeignKey(apps.get_model('company', 'Meeting'),
     #                             on_delete=models.SET_NULL,
     #                             related_name='meeting_documents')
-    file = models.FileField(upload_to=UploadToPathAndRename(os.path.join('upload', 'here')))
+    file = models.FileField(upload_to=UploadToPathAndRename(os.path.join('MeetingDocuments/')))
 
     def __str__(self):
         return "{}.{} - {}".format(self.uuid, self.extension, self.name)
@@ -100,3 +100,19 @@ class MeetingDocument(BaseDocument):
     class Meta:
         ordering = ('name', 'extension')
 
+
+class EmployeeDocument(BaseDocument):
+    # meeting = models.ForeignKey(apps.get_model('company', 'Meeting'),
+    #                             on_delete=models.SET_NULL,
+    #                             related_name='meeting_documents')
+    created = models.DateTimeField(auto_now_add=True, null=False)
+    updated = models.DateTimeField(auto_now=True, null=True)
+    file = models.FileField(upload_to=UploadToPathAndRename(os.path.join('EmployeeDocuments/')))
+
+
+def __str__(self):
+    return "{}.{} - {}".format(self.uuid, self.extension, self.name)
+
+
+class Meta:
+    ordering = ('name', 'extension')
