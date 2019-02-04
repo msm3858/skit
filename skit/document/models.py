@@ -42,6 +42,10 @@ class UploadToPathAndRename(object):
         return os.path.join(self.sub_path, filePath)
 
 
+#   def get_absolute_url(self):
+#        return reverse('umowy:bazy_detail',kwargs={'pk':self.pk})
+
+
 class BaseDocument(models.Model):
     STATUS_CHOICES = (
         ('s', 'Sent'),
@@ -89,9 +93,9 @@ class BaseDocument(models.Model):
 
 
 class MeetingDocument(BaseDocument):
-    # meeting = models.ForeignKey(apps.get_model('company', 'Meeting'),
-    #                             on_delete=models.SET_NULL,
-    #                             related_name='meeting_documents')
+    meeting = models.ForeignKey('company.Meeting',
+                                on_delete=models.CASCADE,
+                                related_name='meeting_documents')
     file = models.FileField(upload_to=UploadToPathAndRename(os.path.join('MeetingDocuments/')))
 
     def __str__(self):
@@ -102,17 +106,10 @@ class MeetingDocument(BaseDocument):
 
 
 class EmployeeDocument(BaseDocument):
-    # meeting = models.ForeignKey(apps.get_model('company', 'Meeting'),
-    #                             on_delete=models.SET_NULL,
-    #                             related_name='meeting_documents')
-    created = models.DateTimeField(auto_now_add=True, null=False)
-    updated = models.DateTimeField(auto_now=True, null=True)
     file = models.FileField(upload_to=UploadToPathAndRename(os.path.join('EmployeeDocuments/')))
 
+    def __str__(self):
+        return "{}.{} - {}".format(self.uuid, self.extension, self.name)
 
-def __str__(self):
-    return "{}.{} - {}".format(self.uuid, self.extension, self.name)
-
-
-class Meta:
-    ordering = ('name', 'extension')
+    class Meta:
+        ordering = ('name', 'extension')

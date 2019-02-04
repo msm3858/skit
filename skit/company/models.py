@@ -8,7 +8,7 @@ import uuid
 
 # Create your models here.
 class Human(models.Model):
-    uuid = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
+    id = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
     name = models.CharField(max_length=50, unique=False)
     last_name = models.CharField(max_length=100, unique=False)
     active = models.BooleanField(default=True)
@@ -21,16 +21,20 @@ class Human(models.Model):
 
     def get_absolute_url(self):
         return reverse('company:human_detail',
-                       args=[self.uuid])
+                       args=[self.id])
 
     class Meta:
         abstract = True
-        ordering = ('-level_of_privilege', 'status', 'last_name', 'name')
+        ordering = ('last_name', 'name', 'active')
 
 
 class Employee(Human):
     department = models.CharField(max_length=255)
     position = models.CharField(max_length=255)
+
+    def get_absolute_url(self):
+        return reverse('company:employee_detail',
+                       args=[self.id])
 
     class Meta:
         ordering = ('department', 'position', 'last_name', 'name')
@@ -52,6 +56,10 @@ class Visitor(Human):
                               default='out')
     description = models.TextField(null=True)
 
+    def get_absolute_url(self):
+        return reverse('company:visitor_detail',
+                       args=[self.id])
+
     class Meta:
         ordering = ('employee', 'last_name', 'name', 'status')
 
@@ -63,6 +71,10 @@ class Room(models.Model):
     capacity = models.PositiveIntegerField()
     stuff = models.TextField()
 
+    def get_absolute_url(self):
+        return reverse('company:room_detail',
+                       args=[self.id])
+
     def __str__(self):
         return "Name: {}, capacity: {}.".format(self.name, self.capacity)
 
@@ -72,8 +84,9 @@ class CardUsage(models.Model):
     start_time = models.DateTimeField(null=False)
     end_time = models.DateTimeField(null=True)
 
-    # TODO: Received from
-    # TODO: Given to
+    def get_absolute_url(self):
+        return reverse('company:card_usage_detail',
+                       args=[self.id])
 
     def __str__(self):
         return "[{}] Taken: {}, given back: {}".format(self.description, self.start_time, self.end_time)
@@ -98,6 +111,10 @@ class Meeting(models.Model):
     def __str__(self):
         return "{}, number of participants: {}.".format(self.description[:20], self.number_of_participants)
 
+    def get_absolute_url(self):
+        return reverse('company:meeting_detail',
+                       args=[self.id])
+
     class Meta:
         ordering = ['number_of_participants', 'description']
 
@@ -115,6 +132,9 @@ class MeetingParticipant(models.Model):
 
     # created = models.DateTimeField(auto_now_add=True, null=False)
     # updated = models.DateTimeField(auto_now=True, null=True)
+    def get_absolute_url(self):
+        return reverse('company:meeting_participant_detail',
+                       args=[self.id])
 
     def __str__(self):
         return "[Uuid: {}, meeting: {}]".format(self.id, self.meeting.description[:20])
@@ -135,6 +155,10 @@ class RoomReservation(models.Model):
                                     on_delete=models.SET_NULL,
                                     related_name='company_employee_reservation',
                                     null=True)
+
+    def get_absolute_url(self):
+        return reverse('company:room_reservation_detail',
+                       args=[self.id])
 
     def __str__(self):
         return "Room: {} reserved by: {}, at {} to {}.".format(

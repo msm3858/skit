@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title> Repozytorium umów </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'base/css/bootstrap.min.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static 'base/css/sticky-footer-navbar.css' %}" type="text/css" />
+    </head>
+    <body class="body" style="background-color:rgba(157, 191, 245, 0.562)">
+            <header>
+                <!-- Fixed navbar -->
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                    <a class="navbar-brand" href="{% url 'base:index' %}">Recepcja</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% if user.is_authenticated %}
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="dropdown">
+                                <a class="nav-link" href="{% url 'base:index' %}" data-toggle="dropdown">Zarządzaj firmą<span class="sr-only"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'company:employee_list' %}">Lista pracowników</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'company:employee_list' %}">Dodaj pracownika</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'company:employee_add' %}">Lista pomieszczeń</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'company:employee_list' %}">Dodaj pomieszczenie</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                            <a class="nav-link" href="{% url 'base:index' %}" data-toggle="dropdown">Zarządzaj konferencjami<span class="sr-only"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a  class="dropdown-item" href="{% url 'company:meeting_list' %}">Lista konferencji</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'company:meeting_add' %}">Dodaj konferencję</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'company:room_reservation_list' %}">Rezerwacje pomieszczeń</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'company:room_reservation_add' %}">Dodaj rezerwację</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                            <a class="nav-link" href="{% url 'base:index' %}" data-toggle="dropdown">Zarządzaj dokumentami<span class="sr-only"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a  class="dropdown-item" href="{% url 'document:employee_document_list' %}">Lista dokumentów pracownika</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'document:employee_document_add' %}">Dodaj dokument pracownika</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'document:meeting_document_list' %}">Lista dokumentów konferencji</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'document:meeting_document_add' %}">Dodaj dokument konferencji</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                    <a class="nav-link" href="{% url 'base:index' %}" data-toggle="dropdown">Zarządzaj kartami<span class="sr-only"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a  class="dropdown-item" href="{% url 'cards:card_list' %}">Lista kart dostępu</a></li>
+                                            <li><a  class="dropdown-item" href="{% url 'cards:taken_card_list' %}">Lista kart wydanych</a></li>
+                                            <li><a  class="dropdown-item" href="{% url 'cards:free_card_list' %}">Lista kart wolnych</a></li>
+                                            <li><a  class="dropdown-item" href="{% url 'cards:card_add' %}">Dodaj kartę dostępu</a></li>
+                                            <li><a  class="dropdown-item" href="{% url 'cards:visitor_card_usage_list' %}">Wyświetl wydania kart pracownikom</a></li>
+                                            <li><a  class="dropdown-item" href="{% url 'cards:visitor_card_usage_add' %}">Wyświetl wydania kart gościom</a></li>
+                                            <li><a  class="dropdown-item" href="{% url 'cards:employee_card_usage_add' %}">Wydaj kartę pracownikowi</a></li>
+                                            <li><a  class="dropdown-item" href="{% url 'cards:visitor_card_usage_add' %}">Wydaj kartę dla gościa</a></li>
+                                        </ul>
+                            </li>
+                            <li class="dropdown ">
+                                    <a class="nav-link" href="#" data-toggle="dropdown">{{request.user.first_name}} {{request.user.last_name}}<span class="sr-only"></span></a>
+                                    <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"href="{% url 'account:logout' %}">Logout</a></li>
+                                    </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                </nav>
+            </header>
+            <!-- Begin page content -->
+            <main role="main" class="container-fluid">
+                {% block content %}
+                {% endblock %}
+            </main>
+            <footer class="footer">
+                <div class="container">
+                    <span class="text-muted">SKIT. System e-Recepcji do obsługi konferencji dla nowoczesnej firmy IT.</span>
+                </div>
+            </footer>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->    
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </body>
+</html>

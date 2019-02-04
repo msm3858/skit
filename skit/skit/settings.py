@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',
     'taggit',
     'cards.apps.CardsConfig',
     'company.apps.CompanyConfig',
@@ -134,9 +133,9 @@ EMAIL_HOST_PASSWORD = 'tralalala00'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-LOGIN_REDIRECT_URL = 'dashboard'
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'base:index'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
