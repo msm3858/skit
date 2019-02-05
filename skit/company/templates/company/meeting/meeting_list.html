@@ -1,0 +1,41 @@
+{% extends "base/home.html" %}
+{% block content %}
+{% if meeting_list %}
+    <table class="table table-bordered table-hover">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Opis</th>
+                <th>Ilość uczestników</th>
+                <th>Rodzaj konferencji</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for meeting in meeting_list %}
+            <tr>
+                <td>{{meeting.id}}</td>
+                <td><a href="{% url 'company:meeting_detail' meeting.id %}">{{meeting.description|slice:":40"}}</a></td>
+                <td>{{meeting.number_of_participants}}</td>
+                <td>{{meeting.get_kind_display}}</td>
+                <td>
+                    <a href="{% url 'company:meeting_update' meeting.id %}" class="btn btn-primary btn-block">Edycja</a>
+                </td>
+                <td>
+                    <form action="{% url 'company:meeting_detail' meeting.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="meeting_delete" value="{{ meeting.id }}"/>
+                        <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Czy chcesz usunąć?')">Usuń</button>
+                    </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Brak konferencji do wyświetlenia.</p>
+
+{% endif %}
+{% endblock %}

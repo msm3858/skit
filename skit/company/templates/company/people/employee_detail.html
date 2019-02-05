@@ -1,0 +1,12 @@
+{% extends "base/home.html" %}
+{% block content %}
+<h1>PRACOWNIK: {{ object.name }} {{ object.last_name }}</h1>
+<ul>
+    <li> Imię: <b>{{ object.name }}</b></li>
+    <li> Nazwisko<b>{{ object.last_name }}</b></li>
+    <li> Czy aktywny: <b>{{ object.active }}</b></li>
+    <li> Wydział: <b>{{ object.department }}</b></li>
+    <li> Stanowisko: <b>{{ object.position }}</b></li>
+    
+</ul>
+{% endblock %}

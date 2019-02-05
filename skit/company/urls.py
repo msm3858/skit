@@ -62,6 +62,9 @@ urlpatterns = [
     path('meeting/<int:pk>/edit/', login_required(views.MeetingUpdateView.as_view()), name='meeting_update'),
     # ex: /meeting/21/delete
     path('meeting/<int:pk>/delete/', login_required(views.MeetingDeleteView.as_view()), name='meeting_delete'),
+    # ex: /meeting/21/add-participants/
+    path('meeting/<int:meeting_id>/add-participants/',
+         login_required(views.FromMeetingAddMeetingParticipantCreateView.as_view()), name='meeting_add_participants'),
 
     # MeetingParticipant views
 

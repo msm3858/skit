@@ -56,9 +56,9 @@ class MeetingForm(forms.ModelForm):
         model = Meeting
         fields = ['description', 'number_of_participants', 'kind', ]
         labels = {
-            'description': 'Numer pokoju',
+            'description': 'Opis konferencji',
             'number_of_participants': 'Ilość uczestników',
-            'kind': 'Rodzaj spotkania',
+            'kind': 'Rodzaj konferencji',
         }
 
         widgets = {
@@ -75,7 +75,14 @@ class MeetingParticipantForm(forms.ModelForm):
             'visitors': 'Goście',
             'employees': 'Pracownicy',
         }
-
+class FromMeetingAddMeetingParticipantForm(forms.ModelForm):
+    class Meta:
+        model = MeetingParticipant
+        fields = ['visitors', 'employees', ]
+        labels = {
+            'visitors': 'Goście',
+            'employees': 'Pracownicy',
+        }
 
 class RoomReservationForm(forms.ModelForm):
     class Meta:

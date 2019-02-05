@@ -1,0 +1,51 @@
+{% extends "base/home.html" %}
+{% block content %}
+<h1>KONFERENCJA: {{ object.get_kind_display }}</h1>
+<ul>
+    <li> Ilość członków: <b>{{ object.number_of_participants }}</b></li>
+    <li> Opis konferencji: <b>{{ object.description }}</b></li>
+    
+</ul>
+<a href="{% url 'company:meeting_add_participants' meeting.id %}" class="btn btn-primary btn-block">Dodaj uczestników</a>
+
+<h3 style="text-align: center">Uczestnicy spotkania:</h3>
+<div class = "container">
+    <div class="jumbotron" style = "background-color: rgb(197, 208, 219);">
+        <table class="table table-bordered" style = "background-color: rgb(255, 255, 255);">
+            <thread>
+                <tr>
+                    <th>Lista uczestników</th>
+                    <th>Goście</th>
+                    <th>Pracownicy</th>
+                    <th>Usuń listę</th>
+                </tr>
+            </thread>
+            <tbody>
+                {% for meeting_participant in object.company_meeting_participant_participant.all %}
+                <tr>
+                    <td><a href="{% url 'company:meeting_participant_detail' meeting_participant.id %}">{{ meeting_participant.id }}</a></td>
+                    <td>
+                    {% for visitor in meeting_participant.visitors.all %}
+                        {{forloop.counter}}: <a href="{% url 'company:visitor_detail' visitor.id %}">{{ visitor.name }} {{ visitor.last_name }}<br \></a>
+                    {% endfor %}
+                    </td>
+                    <td>
+                    {% for employee in meeting_participant.employees.all %}
+                        {{forloop.counter}}: <a href="{% url 'company:employee_detail' employee.id %}">{{ employee.name }} {{ employee.last_name }}<br \></a>
+                    {% endfor %}
+                    </td>
+                    <td>
+                    <form action="{% url 'company:meeting_detail' object.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="meeting_participant_delete" value="{{ meeting_participant.id }}"/>
+                        <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Czy chcesz usunąć?')">Usuń listę</button>
+                    </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

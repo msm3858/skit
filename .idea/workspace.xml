@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02f65b6b-2fcd-46d0-88f5-ac28f9672b10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/skit/base/templates/base/form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/skit/base/templates/base/form_template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/skit/cards/templates/cards/card_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/skit/cards/templates/cards/card_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/skit/cards/templates/cards/employee_card_usage_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/skit/cards/templates/cards/employee_cards_usage_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/skit/cards/templates/cards/visitor_cards_usage_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/skit/cards/templates/cards/visitor_cards_usage_list.html" afterDir="false" />
+    <list default="true" id="02f65b6b-2fcd-46d0-88f5-ac28f9672b10" name="Default Changelist" comment="Cards app finished.">
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/meeting/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/meeting/form_template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/meeting/from_meeting_add_meeting_participants.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/meeting/meeting_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/meeting/meeting_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/people/employee_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/people/employee_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/people/visitor_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/people/visitor_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/rooms/room_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skit/company/templates/company/rooms/room_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/skit/base/static/base/css/sticky-footer-navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/skit/base/static/base/css/sticky-footer-navbar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/skit/base/templates/base/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/skit/base/templates/base/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skit/cards/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/cards/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skit/cards/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/cards/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skit/cards/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/cards/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skit/cards/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/cards/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skit/cards/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/cards/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/skit/cards/templates/cards/card_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/skit/cards/templates/cards/card_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/skit/company/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/company/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skit/company/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/company/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/skit/company/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/company/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/skit/company/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/company/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/skit/company/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/company/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/skit/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/skit/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skit/document/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/skit/document/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skit/document/migrations/0002_auto_20190204_1208.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,20 +30,106 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5">
+    <splitter split-orientation="vertical" split-proportion="0.6033578">
       <split-first>
         <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/skit/company/models.py">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/skit/company/templates/company/meeting/meeting_detail.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-63">
+                  <caret line="17" column="35" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="77" />
+                  <folding>
+                    <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/skit/company/templates/company/meeting/meeting_list.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="192">
+                  <caret line="27" column="58" lean-forward="true" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="65" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/skit/cards/templates/cards/card_list.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="15">
-                  <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
+                  <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
                   <folding>
-                    <element signature="e#0#28#0" expanded="true" />
-                    <marker date="1549361473845" expanded="true" signature="960:965" ph="..." />
-                    <marker date="1549361473845" expanded="true" signature="1288:1377" ph="..." />
-                    <marker date="1549361473845" expanded="true" signature="2056:2061" ph="..." />
+                    <element signature="n#style#0;n#form#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/skit/company/templates/company/people/employee_list.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="465">
+                  <caret line="31" column="65" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="65" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/skit/cards/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="254">
+                  <caret line="103" column="27" lean-forward="true" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#0#131#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/skit/base/templates/base/form.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/skit/base/templates/base/form_template.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/skit/company/templates/company/meeting/form_template.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="135">
+                  <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/skit/base/templates/base/home.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1140">
+                  <caret line="76" column="24" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/skit/base/static/base/css/sticky-footer-navbar.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="367">
+                  <caret line="34" column="3" lean-forward="true" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
                 </state>
               </provider>
             </entry>
@@ -54,38 +137,76 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/skit/company/views.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="419">
-                  <caret line="147" column="120" selection-start-line="147" selection-start-column="120" selection-end-line="147" selection-end-column="120" />
-                  <folding>
-                    <element signature="e#0#58#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/skit/company/urls.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="149">
-                  <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/skit/company/forms.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="51" lean-forward="true" selection-end-line="90" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="horizontal" split-proportion="0.47364908">
+          <split-first>
+            <leaf>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/skit/company/views.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="192">
+                      <caret line="202" column="64" selection-start-line="202" selection-start-column="40" selection-end-line="202" selection-end-column="64" />
+                      <folding>
+                        <element signature="e#0#58#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/skit/company/models.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="132">
+                      <caret line="71" column="9" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="12" />
+                      <folding>
+                        <element signature="e#0#28#0" expanded="true" />
+                        <marker date="1549371885883" expanded="true" signature="960:965" ph="..." />
+                        <marker date="1549371885883" expanded="true" signature="1288:1377" ph="..." />
+                        <marker date="1549371885883" expanded="true" signature="2056:2061" ph="..." />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/skit/company/urls.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="252">
+                      <caret line="84" column="41" selection-start-line="84" selection-start-column="15" selection-end-line="84" selection-end-column="41" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/skit/company/forms.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="161">
+                      <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/skit/company/models.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="177">
+                      <caret line="110" column="12" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="12" />
+                      <folding>
+                        <element signature="e#0#28#0" expanded="true" />
+                        <marker date="1549371885883" expanded="true" signature="960:965" ph="..." />
+                        <marker date="1549371885883" expanded="true" signature="1288:1377" ph="..." />
+                        <marker date="1549371885883" expanded="true" signature="2056:2061" ph="..." />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-second>
     </splitter>
   </component>
@@ -116,6 +237,13 @@
       <find>visitor</find>
       <find>card</find>
       <find>reverse(</find>
+      <find>employee</find>
+      <find>split</find>
+      <find>formview</find>
+      <find>MeetingParticipantForm</find>
+      <find>dele</find>
+      <find>success</find>
+      <find>block</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,18 +252,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/skit/cards/admin.py" />
-        <option value="$PROJECT_DIR$/skit/account/templates/account/dashboard.html" />
-        <option value="$PROJECT_DIR$/skit/account/templates/account/base.html" />
-        <option value="$PROJECT_DIR$/skit/blog/views.py" />
-        <option value="$PROJECT_DIR$/skit/interactive_shell.py" />
-        <option value="$PROJECT_DIR$/skit/company/admin.py" />
-        <option value="$PROJECT_DIR$/skit/company/migrations/0006_auto_20181117_1546.py" />
-        <option value="$PROJECT_DIR$/skit/base/models.py" />
-        <option value="$PROJECT_DIR$/skit/documents/models.py" />
-        <option value="$PROJECT_DIR$/skit/document/admin.py" />
-        <option value="$PROJECT_DIR$/skit/account/views.py" />
-        <option value="$PROJECT_DIR$/skit/base/odds.py" />
         <option value="$PROJECT_DIR$/skit/base/forms.py" />
         <option value="$PROJECT_DIR$/skit/account/forms.py" />
         <option value="$PROJECT_DIR$/skit/document/forms.py" />
@@ -160,27 +276,39 @@
         <option value="$PROJECT_DIR$/skit/cards/templates/cards/card_detail.html" />
         <option value="$PROJECT_DIR$/skit/base/templates/base/form.html" />
         <option value="$PROJECT_DIR$/skit/cards/templates/cards/card_usage_list.html" />
-        <option value="$PROJECT_DIR$/skit/cards/templates/cards/card_list.html" />
         <option value="$PROJECT_DIR$/skit/cards/templates/cards/free_card_list.html" />
-        <option value="$PROJECT_DIR$/skit/company/models.py" />
-        <option value="$PROJECT_DIR$/skit/company/urls.py" />
         <option value="$PROJECT_DIR$/skit/cards/models.py" />
         <option value="$PROJECT_DIR$/skit/cards/templates/cards/employee_card_usage_list.html" />
         <option value="$PROJECT_DIR$/skit/cards/templates/cards/employee_cards_usage_detail.html" />
         <option value="$PROJECT_DIR$/skit/cards/templates/cards/visitor_cards_usage_detail.html" />
         <option value="$PROJECT_DIR$/skit/cards/templates/cards/visitor_card_usage_list.html" />
-        <option value="$PROJECT_DIR$/skit/base/templates/base/home.html" />
         <option value="$PROJECT_DIR$/skit/cards/urls.py" />
         <option value="$PROJECT_DIR$/skit/cards/forms.py" />
         <option value="$PROJECT_DIR$/skit/cards/views.py" />
-        <option value="$PROJECT_DIR$/skit/company/views.py" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/people/employee_list.html" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/people/employee_detail.html" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/people/visitor_detail.html" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/people/visitor_list.html" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/rooms/room_detail.html" />
+        <option value="$PROJECT_DIR$/skit/company/models.py" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/rooms/room_list.html" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/meeting/from_meeting_add_meeting_participants.html" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/meeting/form.html" />
         <option value="$PROJECT_DIR$/skit/company/forms.py" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/meeting/form_template.html" />
+        <option value="$PROJECT_DIR$/skit/company/urls.py" />
+        <option value="$PROJECT_DIR$/skit/company/views.py" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/meeting/meeting_list.html" />
+        <option value="$PROJECT_DIR$/skit/company/templates/company/meeting/meeting_detail.html" />
+        <option value="$PROJECT_DIR$/skit/base/static/base/css/sticky-footer-navbar.css" />
+        <option value="$PROJECT_DIR$/skit/base/templates/base/home.html" />
+        <option value="$PROJECT_DIR$/skit/cards/templates/cards/card_list.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="993" />
-    <option name="y" value="25" />
+    <option name="x" value="2424" />
+    <option name="y" value="27" />
     <option name="width" value="927" />
     <option name="height" value="1055" />
   </component>
@@ -206,6 +334,51 @@
               <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
               <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="cards" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -213,6 +386,48 @@
               <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
               <item name="skit" type="462c0819:PsiDirectoryNode" />
               <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="people" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoReception" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoReception" type="462c0819:PsiDirectoryNode" />
+              <item name="skit" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+              <item name="rooms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -227,6 +442,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/skit/company/templates/company/meeting" />
+      <recent name="$PROJECT_DIR$/skit/company/templates/company/rooms" />
+      <recent name="$PROJECT_DIR$/skit/company/templates/company/people" />
       <recent name="$PROJECT_DIR$/skit/cards/templates/cards" />
     </key>
   </component>
@@ -242,7 +460,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.models (1)">
+    <configuration name="models (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DjangoReception" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/skit/company" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/skit/company/models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DjangoReception" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -266,6 +505,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.models (1)" />
         <item itemvalue="Python.models" />
       </list>
     </recent_temporary>
@@ -309,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549289826846</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Cards app finished.">
+      <created>1549367691299</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1549367691299</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -322,10 +569,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
+    <frame x="1987" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20010673" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20752628" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Project Explorer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -333,7 +580,7 @@
       <window_info id="Job Explorer" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32948583" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32948583" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39979014" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -348,37 +595,14 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.2497332" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10512273" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Project Explorer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="DB Browser" order="4" />
-      <window_info id="Job Explorer" order="5" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Console" order="7" />
-      <window_info anchor="bottom" id="DB Execution Console" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.33053514" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.2497332" />
-    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added logging. Before reseting password" />
     <MESSAGE value="Added document management. At first just meeting documents." />
     <MESSAGE value="Small update." />
     <MESSAGE value="Created views. Created urls. Modified models. Before creating templates." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created views. Created urls. Modified models. Before creating templates." />
+    <MESSAGE value="Cards app finished." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cards app finished." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -395,97 +619,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/skit/base/forms.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/company/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/account/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/document/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/document/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/company/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/document/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="98" column="4" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/skit/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="61" lean-forward="true" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding>
-            <element signature="e#628#660#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="55" lean-forward="true" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/account/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/base/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/base/odds.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/skit/base/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -602,20 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/skit/base/templates/base/form_template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skit/base/templates/base/form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/skit/document/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -680,16 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/skit/cards/templates/cards/card_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/skit/base/templates/base/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -727,34 +836,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/skit/base/templates/base/home.html">
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/people/employee_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="58" column="101" lean-forward="true" selection-start-line="58" selection-start-column="101" selection-end-line="58" selection-end-column="101" />
+        <state relative-caret-position="75">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/people/visitor_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/rooms/room_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/rooms/room_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/people/visitor_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="29" column="107" selection-start-line="29" selection-start-column="107" selection-end-line="29" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/base/templates/base/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/meeting/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/skit/cards/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="254">
+          <caret line="103" column="27" lean-forward="true" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="27" />
           <folding>
             <element signature="e#0#131#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/meeting/from_meeting_add_meeting_participants.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="81" column="18" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/base/templates/base/form_template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/meeting/form_template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/meeting/meeting_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="27" column="58" lean-forward="true" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/skit/company/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
+        <state relative-caret-position="252">
+          <caret line="84" column="41" selection-start-line="84" selection-start-column="15" selection-end-line="84" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/meeting/meeting_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63">
+          <caret line="17" column="35" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="77" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/skit/company/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="147" column="120" selection-start-line="147" selection-start-column="120" selection-end-line="147" selection-end-column="120" />
+        <state relative-caret-position="192">
+          <caret line="202" column="64" selection-start-line="202" selection-start-column="40" selection-end-line="202" selection-end-column="64" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>
@@ -763,21 +957,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/skit/company/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
+        <state relative-caret-position="132">
+          <caret line="71" column="9" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="12" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1549361473845" expanded="true" signature="960:965" ph="..." />
-            <marker date="1549361473845" expanded="true" signature="1288:1377" ph="..." />
-            <marker date="1549361473845" expanded="true" signature="2056:2061" ph="..." />
+            <marker date="1549371885883" expanded="true" signature="960:965" ph="..." />
+            <marker date="1549371885883" expanded="true" signature="1288:1377" ph="..." />
+            <marker date="1549371885883" expanded="true" signature="2056:2061" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/skit/company/forms.py">
+    <entry file="file://$PROJECT_DIR$/skit/base/static/base/css/sticky-footer-navbar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="51" lean-forward="true" selection-end-line="90" />
+        <state relative-caret-position="367">
+          <caret line="34" column="3" lean-forward="true" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/company/templates/company/people/employee_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="65" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/cards/templates/cards/card_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skit/base/templates/base/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="76" column="24" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="24" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,15 @@
+{% extends "base/home.html" %}
+{% block content %}
+<h1>GOŚĆ: {{ object.name }} {{ object.last_name }}</h1>
+<ul>
+    <li> Imię: <b>{{ object.name }}</b></li>
+    <li> Nazwisko: <b>{{ object.last_name }}</b></li>
+    <li> Czy aktywny: <b>{{ object.active }}</b></li>
+    <li> Cel wizity: <b>{{ object.purpose_of_visit }}</b></li>
+    <li> Do pracownika: <a href="{% url 'company:employee_detail' visitor.employee.id %}"><b>{{ object.employee.name }} {{ object.employee.last_name }}</b></a></li>
+    <li> Status: <b> {{ object.get_status_display }}</b></li>
+    <li> Opis wizyty:<b> {{ object.description }} </b></li>
+
+    
+</ul>
+{% endblock %}

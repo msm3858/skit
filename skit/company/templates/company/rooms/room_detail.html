@@ -1,0 +1,10 @@
+{% extends "base/home.html" %}
+{% block content %}
+<h1>POKÓJ: {{ object.name }}</h1>
+<ul>
+    <li> Imię: <b>{{ object.name }}</b></li>
+    <li> Pojemność: <b>{{ object.capacity }}</b></li>
+    <li> Wyposażenie: <b>{{ object.stuff }}</b></li>
+    
+</ul>
+{% endblock %}

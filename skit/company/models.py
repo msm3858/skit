@@ -81,9 +81,9 @@ class Room(models.Model):
 
 class Meeting(models.Model):
     KIND_CHOICES = (
-        ('in', 'Internal'),
-        ('ext', 'External'),
-        ('con', 'Conference'),
+        ('in', 'Wewnętrzne'),
+        ('ext', 'Zewnętrzne'),
+        ('con', 'Konferencja'),
     )
     description = models.TextField()
     number_of_participants = models.PositiveIntegerField()

@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, reverse, redirect
-from .forms import EmployeeForm, VisitorForm, RoomForm, MeetingForm, MeetingParticipantForm, \
+from .forms import EmployeeForm, FromMeetingAddMeetingParticipantForm, VisitorForm, RoomForm, MeetingForm, MeetingParticipantForm, \
     RoomReservationForm
 from .models import Employee, Visitor, Room, Meeting, MeetingParticipant, RoomReservation
 from django.views import generic
@@ -13,14 +13,16 @@ from django.views.generic import View
 
 from django.contrib.auth.decorators import login_required
 
+base_form = 'base/form.html'
+
 
 class IndexView(generic.TemplateView):
-    template_name = 'base/home.html'
+    template_name = base_form
 
 
 # Creating views for Employee
 class EmployeeListView(generic.ListView):
-    template_name = 'company/employee_list.html'
+    template_name = 'company/people/employee_list.html'
     context_object_name = 'employee_list'
 
     def get_queryset(self):
@@ -29,18 +31,18 @@ class EmployeeListView(generic.ListView):
 
 class EmployeeDetailView(generic.DetailView):
     model = Employee
-    template_name = 'company/employee_detail.html'
+    template_name = 'company/people/employee_detail.html'
 
 
 class EmployeeCreateView(CreateView):
-    template_name = 'company/employee_form.html'
+    template_name = base_form
     model = Employee
     form_class = EmployeeForm
     # fields = ['', '', ''...]
 
 
 class EmployeeUpdateView(UpdateView):
-    template_name = 'company/employee_form.html'
+    template_name = base_form
     model = Employee
     form_class = EmployeeForm
 
@@ -52,7 +54,7 @@ class EmployeeDeleteView(DeleteView):
 
 # Creating views for Visitor
 class VisitorListView(generic.ListView):
-    template_name = 'company/visitor_list.html'
+    template_name = 'company/people/visitor_list.html'
     context_object_name = 'visitor_list'
 
     def get_queryset(self):
@@ -61,18 +63,18 @@ class VisitorListView(generic.ListView):
 
 class VisitorDetailView(generic.DetailView):
     model = Visitor
-    template_name = 'company/visitor_detail.html'
+    template_name = 'company/people/visitor_detail.html'
 
 
 class VisitorCreateView(CreateView):
-    template_name = 'company/visitor_form.html'
+    template_name = base_form
     model = Visitor
     form_class = VisitorForm
     # fields = ['', '', ''...]
 
 
 class VisitorUpdateView(UpdateView):
-    template_name = 'company/visitor_form.html'
+    template_name = base_form
     model = Visitor
     form_class = VisitorForm
 
@@ -84,7 +86,7 @@ class VisitorDeleteView(DeleteView):
 
 # Creating views for Room
 class RoomListView(generic.ListView):
-    template_name = 'company/room_list.html'
+    template_name = 'company/rooms/room_list.html'
     context_object_name = 'room_list'
 
     def get_queryset(self):
@@ -93,18 +95,18 @@ class RoomListView(generic.ListView):
 
 class RoomDetailView(generic.DetailView):
     model = Room
-    template_name = 'company/room_detail.html'
+    template_name = 'company/rooms/room_detail.html'
 
 
 class RoomCreateView(CreateView):
-    template_name = 'company/room_form.html'
+    template_name = base_form
     model = Room
     form_class = RoomForm
     # fields = ['', '', ''...]
 
 
 class RoomUpdateView(UpdateView):
-    template_name = 'company/room_form.html'
+    template_name = base_form
     model = Room
     form_class = RoomForm
 
@@ -116,7 +118,7 @@ class RoomDeleteView(DeleteView):
 
 # Creating views for Meeting
 class MeetingListView(generic.ListView):
-    template_name = 'company/meeting_list.html'
+    template_name = 'company/meeting/meeting_list.html'
     context_object_name = 'meeting_list'
 
     def get_queryset(self):
@@ -125,18 +127,18 @@ class MeetingListView(generic.ListView):
 
 class MeetingDetailView(generic.DetailView):
     model = Meeting
-    template_name = 'company/meeting_detail.html'
+    template_name = 'company/meeting/meeting_detail.html'
 
 
 class MeetingCreateView(CreateView):
-    template_name = 'company/meeting_form.html'
+    template_name = base_form
     model = Meeting
     form_class = MeetingForm
     # fields = ['', '', ''...]
 
 
 class MeetingUpdateView(UpdateView):
-    template_name = 'company/meeting_form.html'
+    template_name = base_form
     model = Meeting
     form_class = MeetingForm
 
@@ -145,10 +147,10 @@ class MeetingDeleteView(DeleteView):
     model = Meeting
     success_url = reverse_lazy('company:meeting_list')
 
-########################################################################################################################
+
 # Creating views for MeetingParticipant
 class MeetingParticipantListView(generic.ListView):
-    template_name = 'company/meeting_participant_list.html'
+    template_name = 'company/meeting/meeting_participant_list.html'
     context_object_name = 'meeting_participant_list'
 
     def get_queryset(self):
@@ -157,18 +159,41 @@ class MeetingParticipantListView(generic.ListView):
 
 class MeetingParticipantDetailView(generic.DetailView):
     model = MeetingParticipant
-    template_name = 'company/meeting_participant_detail.html'
+    template_name = 'company/meeting/meeting_participant_detail.html'
 
 
 class MeetingParticipantCreateView(CreateView):
-    template_name = 'company/meeting_participant_form.html'
+    template_name = base_form
     model = MeetingParticipant
     form_class = MeetingParticipantForm
     # fields = ['', '', ''...]
 
 
+class FromMeetingAddMeetingParticipantCreateView(CreateView):
+    template_name = 'company/meeting/form.html'
+    model = MeetingParticipant
+    form_class = FromMeetingAddMeetingParticipantForm
+    success_url = reverse_lazy('company:meeting_list')
+    # fields = ['', '', ''...]
+
+    def dispatch(self, request, *args, **kwargs):
+        """
+        Overridden so we can make sure the `Meeting` instance exists
+        before going any further.
+        """
+        self.meeting = get_object_or_404(Meeting, pk=kwargs['meeting_id'])
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        """
+        Overridden to add the ipsum relation to the `Lorem` instance.
+        """
+        form.instance.meeting = self.meeting
+        return super().form_valid(form)
+
+
 class MeetingParticipantUpdateView(UpdateView):
-    template_name = 'company/meeting_participant_form.html'
+    template_name = base_form
     model = MeetingParticipant
     form_class = MeetingParticipantForm
 
@@ -193,14 +218,14 @@ class RoomReservationDetailView(generic.DetailView):
 
 
 class RoomReservationCreateView(CreateView):
-    template_name = 'company/room_reservation_form.html'
+    template_name = base_form
     model = RoomReservation
     form_class = RoomReservationForm
     # fields = ['', '', ''...]
 
 
 class RoomReservationUpdateView(UpdateView):
-    template_name = 'company/room_reservation_form.html'
+    template_name = base_form
     model = RoomReservation
     form_class = RoomReservationForm
 

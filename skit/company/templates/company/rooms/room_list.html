@@ -1,0 +1,43 @@
+
+
+{% extends "base/home.html" %}
+{% block content %}
+{% if room_list %}
+    <table class="table table-bordered table-hover">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Opis</th>
+                <th>Pojemność</th>
+                <th>Wyposażenie</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for room in room_list %}
+            <tr>
+                <td>{{room.id}}</td>
+                <td><a href="{% url 'company:room_detail' room.id %}">{{room.name}}</a></td>
+                <td>{{visitor.capacity}}</td>
+                <td>{{visitor.stuff|slice:":40"}}</td>
+                <td>
+                    <a href="{% url 'company:room_update' room.id %}" class="btn btn-primary btn-block">Edycja</a>
+                </td>
+                <td>
+                    <form action="{% url 'company:room_delete' room.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="room" value="{{ room.id }}"/>
+                        <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Czy chcesz usunąć?')">Usuń</button>
+                    </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Brak pokoji do wyświetlenia.</p>
+
+{% endif %}
+{% endblock %}

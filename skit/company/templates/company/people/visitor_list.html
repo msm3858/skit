@@ -1,0 +1,45 @@
+
+
+{% extends "base/home.html" %}
+{% block content %}
+{% if visitor_list %}
+    <table class="table table-bordered table-hover">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Gość</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Czy aktywny</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for visitor in visitor_list %}
+            <tr>
+                <td>{{visitor.id}}</td>
+                <td><a href="{% url 'company:visitor_detail' visitor.id %}">{{visitor.name}} {{ visitor.last_name }}</a></td>
+                <td>{{visitor.name}}</td>
+                <td>{{visitor.last_name}}</td>
+                <td>{{visitor.active}}</td>
+                <td>
+                    <a href="{% url 'company:visitor_update' visitor.id %}" class="btn btn-primary btn-block">Edycja</a>
+                </td>
+                <td>
+                    <form action="{% url 'company:visitor_delete' visitor.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="visitor_id" value="{{ visitor.id }}"/>
+                        <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Czy chcesz usunąć?')">Usuń</button>
+                    </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Brak gości do wyświetlenia.</p>
+
+{% endif %}
+{% endblock %}

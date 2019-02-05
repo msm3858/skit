@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
     <head>
-        <title> Repozytorium umów </title>
+        <title> SKIT - {% block title %}system konferencji IT {% endblock %} </title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         {% load staticfiles %}
@@ -23,9 +23,11 @@
                                 <a class="nav-link" href="{% url 'base:index' %}" data-toggle="dropdown">Zarządzaj firmą<span class="sr-only"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="{% url 'company:employee_list' %}">Lista pracowników</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'company:employee_list' %}">Dodaj pracownika</a></li>
-                                    <li><a  class="dropdown-item" href="{% url 'company:employee_add' %}">Lista pomieszczeń</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'company:employee_list' %}">Dodaj pomieszczenie</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'company:employee_add' %}">Dodaj pracownika</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'company:visitor_list' %}">Lista gości</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'company:visitor_add' %}">Dodaj gościa</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'company:room_list' %}">Lista pomieszczeń</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'company:room_add' %}">Dodaj pomieszczenie</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -77,7 +79,7 @@
             </main>
             <footer class="footer">
                 <div class="container">
-                    <span class="text-muted">SKIT. System e-Recepcji do obsługi konferencji dla nowoczesnej firmy IT.</span>
+                    <span class="text-muted" >SKIT - System konferencji IT. System e-Recepcji do obsługi konferencji dla nowoczesnej firmy IT.</span>
                 </div>
             </footer>
         <!-- Bootstrap core JavaScript
