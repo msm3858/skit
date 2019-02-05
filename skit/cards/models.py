@@ -7,39 +7,38 @@ from django.utils import timezone
 from django.utils.text import slugify
 
 
-class FreeManager(models.Manager):
+class FreeCardManager(models.Manager):
     def get_queryset(self):
-        return super(FreeManager, self).get_queryset() \
-            .filter(status='free')
+        return super().get_queryset().filter(status='free')
 
 
-class TakenManager(models.Manager):
+class TakenCardManager(models.Manager):
     def get_queryset(self):
-        return super(TakenManager, self).get_queryset() \
-            .filter(status='taken')
+        return super().get_queryset().filter(status='taken')
 
 
 # Create your models here.
 class Card(models.Model):
     STATUS_CHOICES = (
-        ('free', 'Free'),
-        ('taken', 'Taken'),
+        ('free', 'Wolna'),
+        ('taken', 'Zajęta'),
     )
     PRIVILEGES_CHOICES = (
-        ('employee', 'Employee'),
-        ('guest', 'Guest'),
+        ('employee', 'Pracownik'),
+        ('guest', 'Gość'),
         ('master', 'Master'),
-        ('stuff', 'Stuff'),
+        ('stuff', 'Obsługa'),
     )
     name = models.CharField(max_length=50, unique=True)
     code = models.CharField(unique=True,
                             max_length=20,
                             null=False,
                             db_index=True,
-                            validators=[RegexValidator(regex='^[0-9]+$'
-                                                       , message='Unpropriate card code. Must be numeric.',
-                                                       code='invalid_card_code')
-                                , ]
+                            validators=[RegexValidator(regex='^[0-9]+$',
+                                                       message='Niepoprawny format karty. \
+                                                        Kod karty może składać się tylko z cyfr 0-9.',
+                                                       code='invalid_card_code'),
+                                        ]
                             )
     status = models.CharField(max_length=10,
                               choices=STATUS_CHOICES,
@@ -48,8 +47,9 @@ class Card(models.Model):
     level_of_privilege = models.CharField(max_length=10,
                                           choices=PRIVILEGES_CHOICES,
                                           default='guest')
-    taken = TakenManager()  # Our custom manager.
-    free = FreeManager()  # Our custom manager.
+    objects = models.Manager()  # Common manager.
+    free = FreeCardManager()  # Custom manager.
+    taken = TakenCardManager()  # Custom manager.
 
     def __str__(self):
         return "{} {}".format(self.name, self.level_of_privilege)

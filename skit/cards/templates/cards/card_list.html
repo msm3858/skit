@@ -1,0 +1,43 @@
+{% extends "base/home.html" %}
+{% block content %}
+{% if card_list %}
+    <table class="table table-bordered table-hover">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Opis</th>
+                <th>Kod Karty</th>
+                <th>Status</th>
+                <th>Poziom uprawnień</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for card in card_list %}
+            <tr>
+                <td>{{card.id}}</td>
+                <td><a href="{% url 'cards:card_detail' card.id %}">{{card.name}}</a></td>
+                <td>{{card.code}}</td>
+                <td>{{card.get_status_display}}</td>
+                <td>{{card.get_level_of_privilege_display}}</td>
+                <td>
+                    <a href="{% url 'cards:card_update' card.id %}" class="btn btn-primary btn-block">Edycja</a>
+                </td>
+                <td>
+                    <form action="{% url 'cards:card_delete' card.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="card_id" value="{{ card.id }}"/>
+                        <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Czy chcesz usunąć?')">Usuń</button>
+                    </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Brak kart do wyświetlenia.</p>
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base/home.html" %}
+{% block content %}
+<h1>KARTA: {{ object.name }}</h1>
+<ul>
+    <li> Opis: <b>{{ object.description }}</b></li>
+    <li> Początek: <b>{{ object.start_time }}</b></li>
+    <li> Koniec: <b>{{ object.end_time}}</b></li>
+    <li> Karta: <b><a href="{% url 'cards:card_detail' object.card.id %}">{{ object.card.name }}</a></b></li>
+    <li>Pracownik: <b><a href="{% url 'company:employee_detail' object.employee.id %}">{{ object.employee.name }} {{ object.employee.last_name }}</a></b></li>
+</ul>
+{% endblock %}

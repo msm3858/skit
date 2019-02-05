@@ -1,0 +1,11 @@
+{% extends "base/home.html" %}
+{% block content %}
+<h1>KARTA: {{ object.name }}</h1>
+<ul>
+    <li> Opis: <b>{{ object.name }}</b></li>
+    <li> Kod karty: <b>{{ object.code }}</b></li>
+    <li> Status karty: <b>{{ object.get_status_display }}</b></li>
+    <li> Poziom uprawnień: <b>{{ object.get_level_of_privilege_display }}</b></li>
+    
+</ul>
+{% endblock %}

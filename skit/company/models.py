@@ -79,23 +79,6 @@ class Room(models.Model):
         return "Name: {}, capacity: {}.".format(self.name, self.capacity)
 
 
-class CardUsage(models.Model):
-    description = models.TextField(null=False, unique=False)
-    start_time = models.DateTimeField(null=False)
-    end_time = models.DateTimeField(null=True)
-
-    def get_absolute_url(self):
-        return reverse('company:card_usage_detail',
-                       args=[self.id])
-
-    def __str__(self):
-        return "[{}] Taken: {}, given back: {}".format(self.description, self.start_time, self.end_time)
-
-    class Meta:
-        abstract = True
-        ordering = ('-startTime', '-endTime', 'description')
-
-
 class Meeting(models.Model):
     KIND_CHOICES = (
         ('in', 'Internal'),

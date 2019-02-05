@@ -1,6 +1,7 @@
-from .models import Employee, Visitor, Room, CardUsage, Meeting, MeetingParticipant, RoomReservation
+from .models import Employee, Visitor, Room, Meeting, MeetingParticipant, RoomReservation
 from django import forms
 
+from django.apps import apps
 from django.contrib.auth.models import User
 
 
@@ -48,24 +49,6 @@ class RoomForm(forms.ModelForm):
         'stuff': forms.Textarea(attrs={'cols': 60, 'rows': 5}),
 
     }
-
-
-class CardUsageForm(forms.ModelForm):
-    class Meta:
-        model = CardUsage
-        fields = ['description', 'start_time', 'end_time', ]
-        labels = {
-            'description': 'Opis(opcjonalne)',
-            'start_time': 'Początek',
-            'end_time': 'Koniec',
-        }
-
-        widgets = {
-            'description': forms.Textarea(attrs={'cols': 60, 'rows': 5}),
-            'start_time': forms.SelectDateWidget(),
-            'end_time': forms.SelectDateWidget(),
-
-        }
 
 
 class MeetingForm(forms.ModelForm):

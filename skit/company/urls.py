@@ -50,19 +50,6 @@ urlpatterns = [
     # ex: /room/5/delete
     path('room/<int:pk>/delete/', login_required(views.RoomDeleteView.as_view()), name='room_delete'),
 
-    # CardUsage views
-
-    # ex: /card_usage-list/
-    path('card_usage-list/', login_required(views.CardUsageListView.as_view()), name='card_usage_list'),
-    # ex: /card_usage/5/
-    path('card_usage/<int:pk>/', login_required(views.CardUsageDetailView.as_view()), name='card_usage_detail'),
-    # ex: /card_usage/add/
-    path('card_usage/add/', login_required(views.CardUsageCreateView.as_view()), name='card_usage_add'),
-    # ex: /card_usage/5/edit
-    path('card_usage/<int:pk>/edit/', login_required(views.CardUsageUpdateView.as_view()), name='card_usage_update'),
-    # ex: /card_usage/5/delete
-    path('card_usage/<int:pk>/delete/', login_required(views.CardUsageDeleteView.as_view()), name='card_usage_delete'),
-
     # Meeting views
 
     # ex: /meeting-list/

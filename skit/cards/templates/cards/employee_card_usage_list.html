@@ -1,0 +1,59 @@
+{% extends "base/home.html" %}
+{% block content %}
+
+{% if card_usage_list %}
+    <table class="table table-bordered table-hover">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Opis</th>
+                <th>Początek</th>
+                <th>Koniec</th>
+                <th>Karta</th>
+                <th>Odbierz</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for card_usage in card_usage_list %}
+
+            <tr>
+                <td><a href="{% url 'cards:employee_card_usage_detail' card_usage.id %}">{{card_usage.id}}</a></td>
+                <td>{{ card_usage.description }}</td>
+                <td>{{ card_usage.start_time }}</td>
+                <td>{{card_usage.end_time}}</td>
+                <td>
+                    <a href="{% url 'cards:card_detail' card_usage.card.id %}" >{{ card_usage.card.name }}</a>
+                </td>
+                <td>
+                    {% if not card_usage.end_time %}
+                    <form action="{% url 'cards:employee_card_usage_take' card_usage.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="card_usage_id" value="{{ card_usage.id }}"/>
+                        <button type="submit" class="btn btn-block btn-block" onclick="return confirm('Czy chcesz odebrać kartę?')">Odbierz</button>
+                    </form>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'cards:employee_card_usage_update' card_usage.id %}" class="btn btn-primary btn-block">Edycja</a>
+                </td>
+                <td>
+                    {% if card_usage.end_time %}
+                    <form action="{% url 'cards:employee_card_usage_delete' card_usage.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="card_usage_id" value="{{ card_usage.id }}"/>
+                        <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Czy chcesz usunąć?')">Usuń</button>
+                    </form>
+                    {% endif %}
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Brak użyć kart pracownika do wyświetlenia.</p>
+
+{% endif %}
+{% endblock %}

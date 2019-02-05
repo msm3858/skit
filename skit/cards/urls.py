@@ -39,6 +39,12 @@ urlpatterns = [
     # ex: /employee_card_usage/add/
     path('employee_card_usage/add/', login_required(views.EmployeeCardUsageCreateView.as_view()),
          name='employee_card_usage_add'),
+    # ex: /employee_card_usage/give/
+    path('employee_card_usage/give/', login_required(views.FormGiveEmployeeCardUsageUpdateView.as_view()),
+         name='employee_card_usage_give'),
+    # ex: /employee_card_usage/2/take/
+    path('employee_card_usage/<int:pk>/take/', login_required(views.TakeEmployeeCardUsageRedirectView.as_view()),
+         name='employee_card_usage_take'),
     # ex: /employee_card_usage/2/edit
     path('employee_card_usage/<int:pk>/edit/', login_required(views.EmployeeCardUsageUpdateView.as_view()),
          name='employee_card_usage_update'),
@@ -57,6 +63,12 @@ urlpatterns = [
     # ex: /visitor_card_usage/add/
     path('visitor_card_usage/add/', login_required(views.VisitorCardUsageCreateView.as_view()),
          name='visitor_card_usage_add'),
+    # ex: /visitor_card_usage/give/
+    path('visitor_card_usage/give/', login_required(views.FormGiveVisitorCardUsageUpdateView.as_view()),
+         name='visitor_card_usage_give'),
+    # ex: /visitor_card_usage/2/take/
+    path('visitor_card_usage/<int:pk>/take/', login_required(views.TakeVisitorCardUsageRedirectView.as_view()),
+         name='employee_card_usage_take'),
     # ex: /visitor_card_usage/2/edit
     path('visitor_card_usage/<int:pk>/edit/', login_required(views.VisitorCardUsageUpdateView.as_view()),
          name='visitor_card_usage_update'),

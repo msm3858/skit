@@ -1,8 +1,8 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, reverse, redirect
-from .forms import EmployeeForm, VisitorForm, RoomForm, CardUsageForm, MeetingForm, MeetingParticipantForm, \
+from .forms import EmployeeForm, VisitorForm, RoomForm, MeetingForm, MeetingParticipantForm, \
     RoomReservationForm
-from .models import Employee, Visitor, Room, CardUsage, Meeting, MeetingParticipant, RoomReservation
+from .models import Employee, Visitor, Room, Meeting, MeetingParticipant, RoomReservation
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.shortcuts import render, get_object_or_404
@@ -114,38 +114,6 @@ class RoomDeleteView(DeleteView):
     success_url = reverse_lazy('company:room_list')
 
 
-# Creating views for CardUsage
-class CardUsageListView(generic.ListView):
-    template_name = 'company/card_usage_list.html'
-    context_object_name = 'card_usage_list'
-
-    def get_queryset(self):
-        return CardUsage.objects.all()
-
-
-class CardUsageDetailView(generic.DetailView):
-    model = CardUsage
-    template_name = 'company/card_usage_detail.html'
-
-
-class CardUsageCreateView(CreateView):
-    template_name = 'company/card_usage_form.html'
-    model = CardUsage
-    form_class = CardUsageForm
-    # fields = ['', '', ''...]
-
-
-class CardUsageUpdateView(UpdateView):
-    template_name = 'company/card_usage_form.html'
-    model = CardUsage
-    form_class = CardUsageForm
-
-
-class CardUsageDeleteView(DeleteView):
-    model = CardUsage
-    success_url = reverse_lazy('company:card_usage_list')
-
-
 # Creating views for Meeting
 class MeetingListView(generic.ListView):
     template_name = 'company/meeting_list.html'
@@ -177,7 +145,7 @@ class MeetingDeleteView(DeleteView):
     model = Meeting
     success_url = reverse_lazy('company:meeting_list')
 
-
+########################################################################################################################
 # Creating views for MeetingParticipant
 class MeetingParticipantListView(generic.ListView):
     template_name = 'company/meeting_participant_list.html'
