@@ -1,0 +1,49 @@
+{% extends "base/home.html" %}
+{% block content %}
+{% if meeting_participant_list %}
+    <table class="table table-bordered table-hover">
+        <thread>
+            <tr>
+                <th>Lp</th>
+                <th>Konferencja</th>
+                <th>Goście</th>
+                <th>Pracownicy</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for meeting_participant in meeting_participant_list %}
+            <tr>
+                <td><a href="{% url 'company:meeting_participant_detail' meeting_participant.id %}">{{forloop.counter}}</a></td>
+                <td><a href="{% url 'company:meeting_detail' meeting_participant.meeting.id %}">{{meeting_participant.meeting.description|slice:":40"}}</a></td>
+                <td>
+                    {% for visitor in meeting_participant.visitors.all %}
+                        {{forloop.counter}}: <a href="{% url 'company:visitor_detail' visitor.id %}">{{ visitor.name }} {{ visitor.last_name }}<br \></a>
+                    {% endfor %}
+                    </td>
+                    <td>
+                    {% for employee in meeting_participant.employees.all %}
+                        {{forloop.counter}}: <a href="{% url 'company:employee_detail' employee.id %}">{{ employee.name }} {{ employee.last_name }}<br \></a>
+                    {% endfor %}
+                    </td>
+                <td>
+                    <a href="{% url 'company:meeting_participant_update' meeting_participant.id %}" class="btn btn-primary btn-block">Edycja</a>
+                </td>
+                <td>
+                    <form action="{% url 'company:meeting_participant_delete' meeting_participant.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="meeting_participant_id" value="{{ meeting_participant.id }}"/>
+                        <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Czy chcesz usunąć?')">Usuń</button>
+                    </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Brak list uczestników do wyświetlenia.</p>
+
+{% endif %}
+{% endblock %}

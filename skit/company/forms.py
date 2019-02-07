@@ -1,5 +1,6 @@
 from .models import Employee, Visitor, Room, Meeting, MeetingParticipant, RoomReservation
 from django import forms
+from bootstrap_datepicker_plus import DateTimePickerInput
 
 from django.apps import apps
 from django.contrib.auth.models import User
@@ -71,7 +72,7 @@ class MeetingParticipantForm(forms.ModelForm):
         model = MeetingParticipant
         fields = ['meeting', 'visitors', 'employees', ]
         labels = {
-            'meeting': 'Numer pokoju',
+            'meeting': 'Spotkanie',
             'visitors': 'Goście',
             'employees': 'Pracownicy',
         }
@@ -95,3 +96,9 @@ class RoomReservationForm(forms.ModelForm):
             'end_time': 'Koniec rezerwacji',
             'reserved_by': 'Zarezerwowane przez..',
         }
+        widgets = {
+            'start_time': DateTimePickerInput(),
+            'end_time': DateTimePickerInput(),
+        }
+
+

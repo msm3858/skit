@@ -23,7 +23,7 @@
             <tbody>
                 {% for meeting_participant in object.company_meeting_participant_participant.all %}
                 <tr>
-                    <td><a href="{% url 'company:meeting_participant_detail' meeting_participant.id %}">{{ meeting_participant.id }}</a></td>
+                    <td>Liczba nr <a href="{% url 'company:meeting_participant_detail' meeting_participant.id %}">{{ forloop.counter }}</a></td>
                     <td>
                     {% for visitor in meeting_participant.visitors.all %}
                         {{forloop.counter}}: <a href="{% url 'company:visitor_detail' visitor.id %}">{{ visitor.name }} {{ visitor.last_name }}<br \></a>
@@ -35,7 +35,7 @@
                     {% endfor %}
                     </td>
                     <td>
-                    <form action="{% url 'company:meeting_detail' object.id %}" method="post" style="display: inline;">
+                    <form action="{% url 'company:meeting_participant_detail' meeting_participant.id %}" method="post" style="display: inline;">
                         {% csrf_token %}
                         <input type="hidden" name="meeting_participant_delete" value="{{ meeting_participant.id }}"/>
                         <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Czy chcesz usunąć?')">Usuń listę</button>

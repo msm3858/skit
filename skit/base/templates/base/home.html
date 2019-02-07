@@ -5,7 +5,10 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         {% load staticfiles %}
-        <link rel="stylesheet" href="{% static 'base/css/bootstrap.min.css' %}" type="text/css" />
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
         <link rel="stylesheet" href="{% static 'base/css/sticky-footer-navbar.css' %}" type="text/css" />
     </head>
     <body class="body" style="background-color:rgba(157, 191, 245, 0.562)">
@@ -37,6 +40,8 @@
                                     <li><a  class="dropdown-item" href="{% url 'company:meeting_add' %}">Dodaj konferencję</a></li>
                                     <li><a  class="dropdown-item" href="{% url 'company:room_reservation_list' %}">Rezerwacje pomieszczeń</a></li>
                                     <li><a  class="dropdown-item" href="{% url 'company:room_reservation_add' %}">Dodaj rezerwację</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'company:meeting_participant_list' %}">Listy uczestników konferencji</a></li>
+                                    <li><a  class="dropdown-item" href="{% url 'company:meeting_participant_add' %}">Dodaj listę uczestników konferencji</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -82,12 +87,10 @@
                     <span class="text-muted" >SKIT - System konferencji IT. System e-Recepcji do obsługi konferencji dla nowoczesnej firmy IT.</span>
                 </div>
             </footer>
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->    
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
+
     </body>
 </html>

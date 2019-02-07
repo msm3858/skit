@@ -205,7 +205,7 @@ class MeetingParticipantDeleteView(DeleteView):
 
 # Creating views for RoomReservation
 class RoomReservationListView(generic.ListView):
-    template_name = 'company/room_reservation_list.html'
+    template_name = 'company/rooms/room_reservation_list.html'
     context_object_name = 'room_reservation_list'
 
     def get_queryset(self):
@@ -214,7 +214,7 @@ class RoomReservationListView(generic.ListView):
 
 class RoomReservationDetailView(generic.DetailView):
     model = RoomReservation
-    template_name = 'company/room_reservation_detail.html'
+    template_name = 'company/rooms/room_reservation_detail.html'
 
 
 class RoomReservationCreateView(CreateView):

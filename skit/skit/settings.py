@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'company.apps.CompanyConfig',
     'base.apps.BaseConfig',
     'document.apps.DocumentConfig',
+    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [

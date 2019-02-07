@@ -62,8 +62,8 @@ urlpatterns = [
     path('meeting/<int:pk>/edit/', login_required(views.MeetingUpdateView.as_view()), name='meeting_update'),
     # ex: /meeting/21/delete
     path('meeting/<int:pk>/delete/', login_required(views.MeetingDeleteView.as_view()), name='meeting_delete'),
-    # ex: /meeting/21/add-participants/
-    path('meeting/<int:meeting_id>/add-participants/',
+    # ex: /meeting/21/participants-add/
+    path('meeting/<int:meeting_id>/participants-add/',
          login_required(views.FromMeetingAddMeetingParticipantCreateView.as_view()), name='meeting_add_participants'),
 
     # MeetingParticipant views
@@ -71,17 +71,17 @@ urlpatterns = [
     # ex: /meeting_participant-list/
     path('meeting_participant-list/', login_required(views.MeetingParticipantListView.as_view()),
          name='meeting_participant_list'),
-    # ex: /meeting_participant/fc9591ea-2865-11e9-b210-d663bd873d93/
-    path('meeting_participant/<uuid:pk>/', login_required(views.MeetingParticipantDetailView.as_view()),
+    # ex: /meeting_participant/14/
+    path('meeting_participant/<int:pk>/', login_required(views.MeetingParticipantDetailView.as_view()),
          name='meeting_participant_detail'),
     # ex: /meeting_participant/add/
     path('meeting_participant/add/', login_required(views.MeetingParticipantCreateView.as_view()),
          name='meeting_participant_add'),
-    # ex: /meeting_participant/fc9591ea-2865-11e9-b210-d663bd873d93/edit
-    path('meeting_participant/<uuid:pk>/edit/', login_required(views.MeetingParticipantUpdateView.as_view()),
+    # ex: /meeting_participant/14/edit
+    path('meeting_participant/<int:pk>/edit/', login_required(views.MeetingParticipantUpdateView.as_view()),
          name='meeting_participant_update'),
-    # ex: /meeting_participant/fc9591ea-2865-11e9-b210-d663bd873d93/delete
-    path('meeting_participant/<uuid:pk>/delete/', login_required(views.MeetingParticipantDeleteView.as_view()),
+    # ex: /meeting_participant/14/delete
+    path('meeting_participant/<int:pk>/delete/', login_required(views.MeetingParticipantDeleteView.as_view()),
          name='meeting_participant_delete'),
 
     # RoomReservation views

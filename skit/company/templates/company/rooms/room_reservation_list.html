@@ -1,0 +1,47 @@
+
+
+{% extends "base/home.html" %}
+{% block content %}
+{% if room_reservation_list %}
+    <table class="table table-bordered table-hover">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Pokój</th>
+                <th>Spotkanie</th>
+                <th>Początek</th>
+                <th>Koniec</th>
+                <th>Zarezerwowane dla</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for room_reservation in room_reservation_list %}
+            <tr>
+                <td>{{room_reservation.id}}</td>
+                <td><a href="{% url 'company:room_detail' room_reservation.room.id %}">{{room_reservation.room.name}}</a></td>
+                <td><a href="{% url 'company:meeting_detail' room_reservation.meeting.id %}">{{room_reservation.meeting..description|slice:":40"}}</a></td>
+                <td>{{room_reservation.start_time}}</td>
+                <td>{{room_reservation.end_time}}</td>
+                <td><a href="{% url 'company:employee_detail' room_reservation.reserved_by.id %}">{{room_reservation.reserved_by.name}} {{room_reservation.reserved_by.last_name}}</a></td>
+                <td>
+                    <a href="{% url 'company:room_reservation_update' room_reservation.id %}" class="btn btn-primary btn-block">Edycja</a>
+                </td>
+                <td>
+                    <form action="{% url 'company:room_reservation_delete' room_reservation.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="room_reservation_id" value="{{ room_reservation.id }}"/>
+                        <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Czy chcesz usunąć?')">Usuń</button>
+                    </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Brak pokoji do wyświetlenia.</p>
+
+{% endif %}
+{% endblock %}

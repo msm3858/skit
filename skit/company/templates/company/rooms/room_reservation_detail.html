@@ -1,0 +1,12 @@
+{% extends "base/home.html" %}
+{% block content %}
+<h1>POKÓJ: <a href="{% url 'company:room_detail' object.room.id %}">{{ object.room.name }}</a></h1>
+<ul>
+    <li> Konferencja: <b><a href="{% url 'company:meeting_detail' object.meeting.id %}">{{ object.meeting.description|slice:":40"}}</a></b></li>
+    <li> Początek: <b>{{ object.start_time }}</b></li>
+    <li> Koniec: <b>{{ object.end_time }}</b></li>
+    <li>Rezerwacji dokonał: <b><a href="{% url 'company:employee_detail' object.reserved_by.id %}">{{object.reserved_by.name}} {{object.reserved_by.last_name}}</a></b></li>
+
+    
+</ul>
+{% endblock %}

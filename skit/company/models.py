@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import TaggableManager
 import uuid
-
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 class Human(models.Model):
@@ -103,11 +103,12 @@ class Meeting(models.Model):
 
 
 class MeetingParticipant(models.Model):
-    id = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
     meeting = models.ForeignKey(Meeting,
                                 on_delete=models.SET_NULL,
                                 related_name='company_meeting_participant_participant',
-                                null=True)
+                                null=True,
+                                unique=True,
+                                )
     visitors = models.ManyToManyField(Visitor,
                                       related_name='visitors_meeting_participants')
     employees = models.ManyToManyField(Employee,
@@ -133,7 +134,7 @@ class RoomReservation(models.Model):
                                 related_name='company_meeting_reservation',
                                 null=True)
     start_time = models.DateTimeField(null=False)
-    end_time = models.DateTimeField(null=True)
+    end_time = models.DateTimeField(null=True, blank=True)
     reserved_by = models.ForeignKey(Employee,
                                     on_delete=models.SET_NULL,
                                     related_name='company_employee_reservation',

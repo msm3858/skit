@@ -1,0 +1,21 @@
+{% extends "base/home.html" %}
+{% block content %}
+<h1>KONFERENCJA: <a href="{% url 'company:meeting_detail' object.meeting.id %}">{{ object.meeting.description }}</a></h1>
+<ul>
+    Uczestnicy:
+    <ul>Goście:
+
+            {% for visitor in object.visitors.all %}
+        <li>{{forloop.counter}}: <a href="{% url 'company:visitor_detail' visitor.id %}">{{ visitor.name }} {{ visitor.last_name }}<br /></a></li>
+            {% endfor %}
+    </ul>
+    <ul>Pracownicy:
+
+            {% for employee in object.employees.all %}
+                <li>{{forloop.counter}}: <a href="{% url 'company:employee_detail' employee.id %}">{{ employee.name }} {{ employee.last_name }}<br /></a></li>
+            {% endfor %}
+    </ul>
+
+
+</ul>
+{% endblock %}
