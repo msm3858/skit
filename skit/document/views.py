@@ -29,14 +29,14 @@ class MeetingDocumentDetailView(generic.DetailView):
 
 
 class MeetingDocumentCreateView(CreateView):
-    template_name = 'document/meeting_document_form.html'
+    template_name = 'base/form.html.html'
     model = MeetingDocument
     form_class = MeetingDocumentForm
     # fields = ['', '', ''...]
 
 
 class MeetingDocumentUpdateView(UpdateView):
-    template_name = 'document/meeting_document_form.html'
+    template_name = 'base/form.html.html'
     model = MeetingDocument
     form_class = MeetingDocumentForm
 
@@ -60,14 +60,14 @@ class EmployeeDocumentDetailView(generic.DetailView):
 
 
 class EmployeeDocumentCreateView(CreateView):
-    template_name = 'document/employee_document_form.html'
+    template_name = 'base/form.html'
     model = EmployeeDocument
     form_class = EmployeeDocumentForm
     # fields = ['', '', ''...]
 
 
 class EmployeeDocumentUpdateView(UpdateView):
-    template_name = 'document/employee_document_form.html'
+    template_name = 'base/form.html'
     model = EmployeeDocument
     form_class = EmployeeDocumentForm
 

@@ -8,6 +8,7 @@
             <tr>
                 <th>ID</th>
                 <th>Pokój</th>
+                <th>Pojemność pokoju</th>
                 <th>Spotkanie</th>
                 <th>Początek</th>
                 <th>Koniec</th>
@@ -21,7 +22,8 @@
             <tr>
                 <td>{{room_reservation.id}}</td>
                 <td><a href="{% url 'company:room_detail' room_reservation.room.id %}">{{room_reservation.room.name}}</a></td>
-                <td><a href="{% url 'company:meeting_detail' room_reservation.meeting.id %}">{{room_reservation.meeting..description|slice:":40"}}</a></td>
+                <th>{{room_reservation.room.capacity}}</th>
+                <td><a href="{% url 'company:meeting_detail' room_reservation.meeting.id %}">{{room_reservation.meeting.description|slice:":40"}}</a></td>
                 <td>{{room_reservation.start_time}}</td>
                 <td>{{room_reservation.end_time}}</td>
                 <td><a href="{% url 'company:employee_detail' room_reservation.reserved_by.id %}">{{room_reservation.reserved_by.name}} {{room_reservation.reserved_by.last_name}}</a></td>

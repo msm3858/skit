@@ -31,8 +31,8 @@ class UploadToPathAndRename(object):
 
     def __call__(self, instance, filePath):
         name, ext = filePath.split('.')[:-1], filePath.split('.')[-1]
-        if instance.uuid:
-            filePath = '{}.{}'.format(instance.uuid, ext)
+        if instance.id:
+            filePath = '{}.{}'.format(instance.id, ext)
         else:
             filePath = '{}.{}'.format(uuid.uuid4().hex, ext)
 
@@ -47,13 +47,6 @@ class UploadToPathAndRename(object):
 
 
 class BaseDocument(models.Model):
-    STATUS_CHOICES = (
-        ('s', 'Sent'),
-        ('p', 'Pending'),
-        ('e', 'Error'),
-        ('l', 'Loaded'),
-    )
-
     DOCUMENT_KINDS = (
         ('pdf', 'PDF'),
         ('wrd', 'Word'),
@@ -65,12 +58,9 @@ class BaseDocument(models.Model):
                                         choices=DOCUMENT_KINDS,
                                         default='pdf')
 
-    uuid = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
+    id = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
     name = models.CharField(max_length=50, unique=False, blank=True, )
     description = models.TextField(null=True)
-    status = models.CharField(max_length=1,
-                              choices=STATUS_CHOICES,
-                              default='l', )
     created = models.DateTimeField(auto_now_add=True, null=False)
     updated = models.DateTimeField(auto_now=True, null=True)
 
@@ -90,6 +80,9 @@ class BaseDocument(models.Model):
     class Meta:
         abstract = True
         ordering = ('-created', 'name')
+    def get_absolute_url(self):
+        return reverse('document:document_detail',
+                       args=[self.id])
 
 
 class MeetingDocument(BaseDocument):
@@ -99,17 +92,25 @@ class MeetingDocument(BaseDocument):
     file = models.FileField(upload_to=UploadToPathAndRename(os.path.join('MeetingDocuments/')))
 
     def __str__(self):
-        return "{}.{} - {}".format(self.uuid, self.extension, self.name)
+        return "{}.{} - {}".format(self.id, self.extension, self.name)
 
     class Meta:
         ordering = ('name', 'extension')
 
+    def get_absolute_url(self):
+        return reverse('document:meeting_document_detail',
+                       args=[self.id])
 
 class EmployeeDocument(BaseDocument):
+    employee = models.ForeignKey('company.Employee',
+                                on_delete=models.CASCADE,
+                                related_name='employee_documents')
     file = models.FileField(upload_to=UploadToPathAndRename(os.path.join('EmployeeDocuments/')))
 
     def __str__(self):
-        return "{}.{} - {}".format(self.uuid, self.extension, self.name)
-
+        return "{}.{} - {}".format(self.id, self.extension, self.name)
+    def get_absolute_url(self):
+        return reverse('document:employee_document_detail',
+                       args=[self.id])
     class Meta:
         ordering = ('name', 'extension')

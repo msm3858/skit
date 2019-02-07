@@ -148,5 +148,26 @@ class RoomReservation(models.Model):
         return "Room: {} reserved by: {}, at {} to {}.".format(
             self.room.name, self.reserved_by, self.start_time, self.end_time)
 
+    def clean(self):
+        cleaned_start_time = self.start_time
+        cleaned_end_time = self.end_time
+        cleaned_room = self.room
+        # Where cleaned_start_time is between start_time and end_time
+        reserved_conflicts = RoomReservation.objects.filter(room=cleaned_room.id)
+        reserved_conflicts_inner1 = reserved_conflicts.filter(start_time__lte = cleaned_start_time)
+        reserved_conflicts_inner1 = reserved_conflicts_inner1.filter(end_time__gte = cleaned_start_time)
+        if reserved_conflicts_inner1.count() > 0:
+            raise ValidationError(("SALA JUŻ ZAREZERWOWANA."))
+
+        # Where cleaned_end_time is between start_time and end_time
+        reserved_conflicts_inner2 = reserved_conflicts.filter(start_time__lte = cleaned_end_time)
+        reserved_conflicts_inner2 = reserved_conflicts_inner2.filter(end_time__gte = cleaned_end_time)
+        if reserved_conflicts_inner2.count() > 0:
+            raise ValidationError(("SALA JUŻ ZAREZERWOWANA."))
+        # Where cleaned_start_time is pre start_time and cleaned_end_time is after end_time
+        reserved_conflicts_outer = reserved_conflicts.filter(start_time__gte = cleaned_start_time)
+        reserved_conflicts_outer = reserved_conflicts_outer.filter(end_time__lte = cleaned_end_time)
+        if reserved_conflicts_outer.count() > 0:
+            raise ValidationError(("SALA JUŻ ZAREZERWOWANA."))
     class Meta:
         ordering = ('-start_time', '-end_time', 'room')
