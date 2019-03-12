@@ -1,0 +1,14 @@
+{% extends "base/home.html" %}
+{% block content %}
+<h1>PLIK: {{ object.name }}</h1>
+<ul>
+    <li> UUID: <b>{{ object.id}}</b></li>
+    <li> Utworzono: <b>{{object.created}}</b></li>
+    <li> Zmodyfikowano: <b>{{object.updated}}</b></li>
+    <li> Rozszerzenie: <b>{{ object.extension}}</b></li>
+    <li> Opis: <b>{{ object.description}}</b></li>
+    <li> Spotkanie: <b><a href="{% url 'company:meeting_detail' object.meeting.id %}">{{ object.meeting.name }}</a></b></li>
+    <b><a href="{{ object.file.url }}" class="btn btn-primary btn-block">Pobierz</a>
+    
+</ul>
+{% endblock %}

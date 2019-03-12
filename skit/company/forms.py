@@ -2,9 +2,6 @@ from .models import Employee, Visitor, Room, Meeting, MeetingParticipant, RoomRe
 from django import forms
 from bootstrap_datepicker_plus import DateTimePickerInput
 
-from django.apps import apps
-from django.contrib.auth.models import User
-
 
 class EmployeeForm(forms.ModelForm):
     class Meta:

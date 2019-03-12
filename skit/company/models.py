@@ -1,20 +1,14 @@
 from django.db import models
-from django.utils import timezone
-from django.contrib.auth.models import User
 from django.urls import reverse
-from taggit.managers import TaggableManager
 import uuid
 from django.core.exceptions import ValidationError
 
-# Create your models here.
+
 class Human(models.Model):
     id = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
     name = models.CharField(max_length=50, unique=False)
     last_name = models.CharField(max_length=100, unique=False)
     active = models.BooleanField(default=True)
-
-    # created = models.DateTimeField(auto_now_add=True)
-    # updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return "{} {} active: {}".format(self.name, self.last_name, self.active)
@@ -42,8 +36,8 @@ class Employee(Human):
 
 class Visitor(Human):
     STATUS_CHOICES = (
-        ('in', 'Inside'),
-        ('out', 'Outside'),
+        ('in', 'Wewnątrz'),
+        ('out', 'Na zewnątrz'),
     )
 
     purpose_of_visit = models.TextField(null=False)
@@ -154,20 +148,21 @@ class RoomReservation(models.Model):
         cleaned_room = self.room
         # Where cleaned_start_time is between start_time and end_time
         reserved_conflicts = RoomReservation.objects.filter(room=cleaned_room.id)
-        reserved_conflicts_inner1 = reserved_conflicts.filter(start_time__lte = cleaned_start_time)
-        reserved_conflicts_inner1 = reserved_conflicts_inner1.filter(end_time__gte = cleaned_start_time)
+        reserved_conflicts_inner1 = reserved_conflicts.filter(start_time__lte=cleaned_start_time)
+        reserved_conflicts_inner1 = reserved_conflicts_inner1.filter(end_time__gte=cleaned_start_time)
         if reserved_conflicts_inner1.count() > 0:
             raise ValidationError(("SALA JUŻ ZAREZERWOWANA."))
 
         # Where cleaned_end_time is between start_time and end_time
-        reserved_conflicts_inner2 = reserved_conflicts.filter(start_time__lte = cleaned_end_time)
-        reserved_conflicts_inner2 = reserved_conflicts_inner2.filter(end_time__gte = cleaned_end_time)
+        reserved_conflicts_inner2 = reserved_conflicts.filter(start_time__lte=cleaned_end_time)
+        reserved_conflicts_inner2 = reserved_conflicts_inner2.filter(end_time__gte=cleaned_end_time)
         if reserved_conflicts_inner2.count() > 0:
             raise ValidationError(("SALA JUŻ ZAREZERWOWANA."))
         # Where cleaned_start_time is pre start_time and cleaned_end_time is after end_time
-        reserved_conflicts_outer = reserved_conflicts.filter(start_time__gte = cleaned_start_time)
-        reserved_conflicts_outer = reserved_conflicts_outer.filter(end_time__lte = cleaned_end_time)
+        reserved_conflicts_outer = reserved_conflicts.filter(start_time__gte=cleaned_start_time)
+        reserved_conflicts_outer = reserved_conflicts_outer.filter(end_time__lte=cleaned_end_time)
         if reserved_conflicts_outer.count() > 0:
             raise ValidationError(("SALA JUŻ ZAREZERWOWANA."))
+
     class Meta:
         ordering = ('-start_time', '-end_time', 'room')

@@ -1,17 +1,12 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, reverse, redirect
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.shortcuts import get_object_or_404
+from django.urls import reverse_lazy
+
 from .forms import EmployeeForm, FromMeetingAddMeetingParticipantForm, VisitorForm, RoomForm, MeetingForm, MeetingParticipantForm, \
     RoomReservationForm
 from .models import Employee, Visitor, Room, Meeting, MeetingParticipant, RoomReservation
-from django.views import generic
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.shortcuts import render, get_object_or_404
-from django.urls import reverse_lazy
 
-from django.contrib.auth import authenticate, login
-from django.views.generic import View
-
-from django.contrib.auth.decorators import login_required
 
 base_form = 'base/form.html'
 

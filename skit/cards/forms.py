@@ -1,6 +1,5 @@
 from .models import Card, EmployeeCardUsage, VisitorCardUsage
 from django import forms
-from django.apps import apps
 
 
 class CardForm(forms.ModelForm):

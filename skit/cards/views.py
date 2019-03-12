@@ -1,11 +1,12 @@
-from .forms import CardForm, EmployeeCardUsageForm, FreeEmployeeCardUsageForm, FreeVisitorCardUsageForm, \
-    VisitorCardUsageForm
-from .models import Card, EmployeeCardUsage, VisitorCardUsage
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic.base import RedirectView
 from django.urls import reverse_lazy
 from django.utils import timezone
+
+from .forms import CardForm, EmployeeCardUsageForm, FreeEmployeeCardUsageForm, FreeVisitorCardUsageForm, \
+    VisitorCardUsageForm
+from .models import Card, EmployeeCardUsage, VisitorCardUsage
 
 
 # Index view

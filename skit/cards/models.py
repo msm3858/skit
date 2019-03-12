@@ -1,10 +1,6 @@
-from django.apps import apps
 from django.db import models
-from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from django.urls import reverse
-from django.utils import timezone
-from django.utils.text import slugify
 
 
 class FreeCardManager(models.Manager):
@@ -69,9 +65,6 @@ class CardUsage(models.Model):
     card = models.ForeignKey(Card,
                              on_delete=models.SET_NULL,
                              null=True)
-
-    # TODO: Received from
-    # TODO: Given to
 
     def __str__(self):
         return "[{}] Taken: {}, given back: {}".format(self.description, self.start_time, self.end_time)
