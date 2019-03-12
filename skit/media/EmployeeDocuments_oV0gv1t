@@ -1,0 +1,215 @@
+POSTGRESQL SELECTS:
+
+SELECT customers.first_name AS "First Name", customers.last_name as "Last Name" from customers
+WHERE customers.first_name = 'Rolf';
+
+UPDATE items set price=10.00 WHERE "name"='Pen';
+
+
+select * from purchases;
+
+delete from purchases where item_id = 4;
+
+select * from purchases right join items on items.id = purchases.item_id;
+
+
+select * from customers inner join purchases on customers.id = purchases.customer_id;
+
+select customers.first_name,customers.last_name,count(purchases.id) from customers left join purchases on customers.id = purchases.customer_id
+group by customers.id;
+
+select customers.first_name,customers.last_name,count(items.id) from items 
+inner join purchases on items.id = purchases.item_id
+inner join customers on purchases.customer_id = customers.id
+group by customers.id
+;
+
+select customers.first_name,customers.last_name,sum(items.price) from items 
+inner join purchases on items.id = purchases.item_id
+inner join customers on purchases.customer_id = customers.id
+group by customers.id
+;
+
+
+select customers.first_name,customers.last_name,SUM(items.price) as "total_spent" from items
+inner join purchases on purchases.item_id = items.id
+inner join customers on purchases.customer_id = customers.id
+group by customers.id
+order by total_spent asc
+limit 2;
+
+CREATE TABLE public.users (
+	id integer,
+	name character varying(100) NOT NULL,
+	constraint users_id_pkey PRIMARY KEY(id)
+)
+
+CREATE TABLE public.videos (
+	id integer PRIMARY KEY,
+	user_id integer REFERENCES public.users,
+	name character varying(255) NOT NULL
+	
+)
+
+INSERT INTO public.users(id,name) values 
+(1,'marysmith');
+
+INSERT INTO public.users values 
+(2,'ralphmith');
+
+
+INSERT INTO public.users values 
+(3,'josealvatierra');
+
+
+INSERT INTO public.videos
+VALUES(1,2,'Test Video');
+
+
+
+INSERT INTO public.users values 
+(2,'ralphmith');
+
+
+INSERT INTO public.videos
+VALUES(1,2,'Test Video');
+
+select * from videos inner join public.users on public.users.id = public.videos.user_id;
+
+CREATE SEQUENCE users_id_seq START 4;
+
+
+ALTER TABLE public.users
+ALTER COLUMN id
+SET DEFAULT nextval('users_id_seq');
+
+ALTER SEQUENCE users_id_seq OWNED BY public.users.id;
+
+INSERT INTO public.users(name) VALUES
+('josealvatierra');
+
+CREATE INDEX index_name ON public.videos(id,user_id);
+
+
+DROP TABLE users CASCADE;
+
+DROP TABLE if EXISTS public.videos;
+
+
+SELECT customers.first_name, customers.last_name, SUM(items.price) FROM customers
+INNER JOIN purchases on customers.id = purchases.customer_id
+INNER JOIN items on purchases.item_id = items.id
+GROUP BY customers.id;
+
+CREATE VIEW total_revenue_per_customer AS
+SELECT customers.first_name, customers.last_name, SUM(items.price) FROM customers
+INNER JOIN purchases on customers.id = purchases.customer_id
+INNER JOIN items on purchases.item_id = items.id
+GROUP BY customers.id;
+
+SELECT * FROM total_revenue_per_customer;
+
+DROP VIEW SELECT * FROM total_revenue_per_customer;
+
+CREATE VIEW awesome_customers AS
+SELECT * FROM total_revenue_per_customer where sum > 150;
+
+CREATE VIEW expensive_items AS
+SELECT * FROM items where price > 100;
+
+SELECT * FROM expensive_items ;
+
+INSERT INTO expensive_items (id,name,price)
+values(0,'DSLR',400)
+
+INSERT INTO expensive_items (id,name,price)
+values(10,'Pencil',4)
+
+DROP VIEW expensive_items;
+
+CREATE VIEW expensive_items AS
+SELECT * FROM items where price > 100
+WITH LOCAL CHECK OPTION;
+
+
+CREATE VIEW expensive_items AS
+select * from items where price > 100
+with local check option;
+
+CREATE VIEW non_luxury_items AS 
+select * from expensive_items where price < 10000;
+
+DROP VIEW non_luxury_items;
+
+CREATE VIEW non_luxury_items as
+select * from expensive_items where price <10000
+with cascaded check option;
+
+
+select * from items
+inner join purchases on items.id = purchases.item_id;
+
+select avg(items.price) from items;
+
+
+select items.name, items.price from items
+inner join purchases on items.id = purchases.item_id
+order by items.price desc
+limit 1;
+
+
+select max(items.price) from items
+inner join purchases on items.id = purchases.item_id
+
+
+select customers.first_name,customers.last_name,count(purchases.id) as purchase_count
+from customers
+inner join purchases on customers.id = purchases.customer_id
+group by customers.id;
+
+select customers.first_name,customers.last_name,count(purchases.id) as purchase_count
+from customers
+inner join purchases on customers.id = purchases.customer_id
+group by customers.id
+having count(purchases.id) = 3;
+
+select timestamp '2005-10-10 05:16:45'; --ISO 8601
+
+select now();
+
+select to_char(now(),'DD-MM-YYYY HH24:MI:SS');
+
+select to_char(now(),'FMDay, FMMonth, DD-MM-YYYY HH24:MI:SS');
+
+
+CREATE TYPE mood AS ENUM('extremely unhappy','unhappy','ok','happy','extremely happy');
+
+CREATE TABLE students (
+name character varying(255),
+current_mood mood
+)
+insert into students values('Robert','ok');
+INSERT INTO students values('Larry','happy');
+INSERT INTO students values('Jose','extremely happy');
+INSERT INTO students values('Marcin', 'unhappy');
+
+SELECT * FROM students where current_mood > 'ok';
+
+select * from items where price > (select AVG(items2.price) from items as items2);
+
+select items.name, items.price - (select avg(items2.price) from items as items2) from items;
+
+select items.name, items.price, items.price - (select avg(items3.price) from items3 as items3) from items where items.price > (select avg(items2.price) from items as items2) + 100;
+
+select items.name, items.price, items.price - (select avg(items3.price) from items as items3) as "difference_from_avg" from items where items.price > (select avg(items2.price) from items as items2) + 100;
+
+create view expensive_items_diff as 
+select items.name, items.price, items.price - (select avg(items3.price) from items as items3) as "difference_from_avg" 
+from items 
+where 
+items.price > 100;
+
+create table test (
+	id SERIAL PRIMARY KEY,
+	name text
+)

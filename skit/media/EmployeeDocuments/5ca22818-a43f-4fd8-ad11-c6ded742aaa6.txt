@@ -1,0 +1,22 @@
+modele:
+	(część kart)
+	karty
+	użytkownicy ( systemowo)
+	zdarzenia
+	
+	konferencje
+	lista sal
+	
+	(część dokumentów)
+	repozytorium
+	(zamiana z systemów na konferencje)
+	zamiana z firma na prowadzący konferencje
+	
+	(część biletów)
+	(po staremu)
+	
+	(część samochodów)
+	po staremu
+	
+	
+	
